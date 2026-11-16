@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aashish Wadhwa | Software Engineer & AI Enthusiast</title>
+  <meta name="description" content="Portfolio of Aashish Wadhwa - Electronics & CS Engineer, Full-Stack Developer, and Cybersecurity & AI Enthusiast based in Mumbai.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              cyan: '#06b6d4',
+              violet: '#8b5cf6',
+              emerald: '#10b981'
+            }
+          },
+          animation: {
+            'blob': 'blob 10s infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(40px, -60px) scale(1.15)' },
+              '66%': { transform: 'translate(-30px, 30px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' }
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '0.85' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & AOS (Animate on Scroll) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Vanilla Tilt.js for 3D card tilt -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4f46e5;
+    }
+
+    /* Glassmorphism Styles */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    .glass-card-hover {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(99, 102, 241, 0.45);
+      box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.35);
+      transform: translateY(-4px);
+    }
+
+    .glass-nav {
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    /* Gradient glow text */
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 10%, #cbd5e1 50%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-primary {
+      background: linear-gradient(135deg, #60a5fa 0%, #818cf8 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-cyan {
+      background: linear-gradient(135deg, #38bdf8 0%, #2dd4bf 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Interactive custom glow cursor */
+    #cursor-blur {
+      position: fixed;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, opacity 0.3s;
+    }
+
+    /* Grid pattern background overlay */
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* Code block styling */
+    .code-tag {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: -0.02em;
+    }
+  </style>
+</head>
+<body class="bg-[#070b13] text-slate-200 antialiased selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
+
+  <!-- Interactive Background Glow Follower -->
+  <div id="cursor-blur" class="hidden md:block"></div>
+
+  <!-- Ambient Light Orbs -->
+  <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl animate-blob"></div>
+    <div class="absolute top-1/3 -right-32 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl animate-blob" style="animation-delay: 3s;"></div>
+    <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-cyan-600/15 rounded-full blur-3xl animate-blob" style="animation-delay: 6s;"></div>
+    <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center space-x-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 p-0.5 shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform duration-300">
+            <div class="w-full h-full bg-[#0b0f19] rounded-[10px] flex items-center justify-center font-mono font-bold text-indigo-400 group-hover:text-indigo-300">
+              AW
+            </div>
+          </div>
+          <span class="font-bold text-lg tracking-tight text-white group-hover:text-indigo-300 transition-colors">
+            Aashish<span class="text-indigo-400">.dev</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-slate-800/80 backdrop-blur-md">
+          <a href="#about" class="px-4 py-2 text-sm text-slate-300 hover:text-white rounded-full transition-colors hover:bg-slate-800/60">About</a>
+          <a href="#skills" class="px-4 py-2 text-sm text-slate-300 hover:text-white rounded-full transition-colors hover:bg-slate-800/60">Skills</a>
+          <a href="#projects" class="px-4 py-2 text-sm text-slate-300 hover:text-white rounded-full transition-colors hover:bg-slate-800/60">Projects</a>
+          <a href="#experience" class="px-4 py-2 text-sm text-slate-300 hover:text-white rounded-full transition-colors hover:bg-slate-800/60">Education</a>
+          <a href="#certificates" class="px-4 py-2 text-sm text-slate-300 hover:text-white rounded-full transition-colors hover:bg-slate-800/60">Certifications</a>
+        </nav>
+
+        <!-- Right CTA & Status -->
+        <div class="hidden md:flex items-center gap-4">
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Open to Roles
+          </div>
+          <a href="#contact" class="px-4 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 shadow-md shadow-indigo-600/25 transition-all hover:scale-105 active:scale-95">
+            Hire Me
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-toggle" aria-label="Toggle menu" class="md:hidden p-2 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300 hover:text-white">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#090d16]/95 border-b border-slate-800 px-6 py-6 space-y-4 backdrop-blur-xl">
+      <a href="#about" class="block text-base font-medium text-slate-300 hover:text-indigo-400 mobile-nav-link">About</a>
+      <a href="#skills" class="block text-base font-medium text-slate-300 hover:text-indigo-400 mobile-nav-link">Skills</a>
+      <a href="#projects" class="block text-base font-medium text-slate-300 hover:text-indigo-400 mobile-nav-link">Projects</a>
+      <a href="#experience" class="block text-base font-medium text-slate-300 hover:text-indigo-400 mobile-nav-link">Education & Journey</a>
+      <a href="#certificates" class="block text-base font-medium text-slate-300 hover:text-indigo-400 mobile-nav-link">Certifications</a>
+      <a href="#contact" class="block text-base font-medium text-indigo-400 mobile-nav-link">Contact Me</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-28">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="min-h-[92vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
+      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Column -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left" data-aos="fade-up" data-aos-duration="900">
+          <!-- Status Pill -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/70 border border-slate-700/70 backdrop-blur-md">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+            </span>
+            <span class="text-xs sm:text-sm font-medium text-slate-300 font-mono">
+              Electronics & CS Engineer | AI & Full-Stack Enthusiast
+            </span>
+          </div>
+
+          <!-- Hero Heading -->
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1]">
+            Hi, I'm <br class="hidden sm:inline">
+            <span class="text-gradient-primary">Aashish Wadhwa</span>
+          </h1>
+
+          <!-- Dynamic Typing Text / Headline -->
+          <div class="h-8 flex items-center justify-center lg:justify-start gap-2 text-lg sm:text-xl font-mono text-cyan-300">
+            <span>&gt;</span>
+            <span id="typewriter" class="border-r-2 border-cyan-400 pr-1 animate-pulse"></span>
+          </div>
+
+          <!-- Bio -->
+          <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Passionate engineer specializing in <strong class="text-slate-200">Full-Stack Development</strong>, 
+            <strong class="text-slate-200">Cybersecurity Telemetry</strong>, and <strong class="text-slate-200">AI Agents</strong>. 
+            Focused on building resilient, data-driven systems, evaluating decision pipelines, and crafting elegant user experiences.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="#projects" class="px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-600/30 transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+              <i data-lucide="folder-code" class="w-4 h-4"></i>
+              View Projects
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ashishwadhwa000@gmail.com&su=Connecting%20from%20Portfolio%20-%20Aashish%20Wadhwa" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-200 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 hover:border-slate-600 transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              Get in Touch
+            </a>
+            <a href="https://github.com/Aashishwadhwa2005" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl text-slate-300 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 hover:text-white transition-all hover:scale-105 active:scale-95" title="GitHub Profile">
+              <i data-lucide="github" class="w-5 h-5"></i>
+            </a>
+          </div>
+
+          <!-- Quick Metrics / Chips -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+            <div>
+              <div class="text-2xl font-bold font-mono text-white">7.86</div>
+              <div class="text-xs text-slate-400">B.Tech CGPI (VESIT)</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold font-mono text-indigo-400">77.6%</div>
+              <div class="text-xs text-slate-400">Diploma Distinction</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold font-mono text-cyan-400">100%</div>
+              <div class="text-xs text-slate-400">Commitment & Drive</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Column: 3D Holographic Profile Showcase -->
+        <div class="lg:col-span-5 flex justify-center" data-aos="zoom-in" data-aos-duration="1000">
+          <div class="relative w-72 sm:w-88 group" data-tilt data-tilt-max="12" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+            
+            <!-- Glow backlight -->
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition duration-700 animate-pulse-glow"></div>
+
+            <!-- Profile Card -->
+            <div class="relative rounded-3xl glass-card p-6 border border-slate-700/50 flex flex-col items-center text-center">
+              
+              <!-- Avatar Frame -->
+              <div class="relative w-44 h-44 mb-5 rounded-2xl p-1 bg-gradient-to-b from-indigo-500/80 to-transparent">
+                <div class="w-full h-full rounded-2xl overflow-hidden bg-slate-800 relative group/photo">
+                  <img src="assets/images/profile.jpg" alt="Aashish Wadhwa" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                </div>
+                <!-- Status badge floating -->
+                <div class="absolute -bottom-2 -right-2 bg-emerald-500 text-slate-950 font-bold p-1.5 rounded-xl shadow-lg ring-4 ring-[#070b13]" title="Available for recruitment">
+                  <i data-lucide="check" class="w-4 h-4"></i>
+                </div>
+              </div>
+
+              <!-- Details -->
+              <h3 class="text-xl font-bold text-white">Aashish Wadhwa</h3>
+              <p class="text-xs font-mono text-indigo-400 mt-1">VESIT Mumbai • Class of 2027</p>
+
+              <!-- Meta info tags -->
+              <div class="w-full mt-5 pt-4 border-t border-slate-800/80 space-y-2 text-left text-xs font-mono">
+                <div class="flex items-center justify-between text-slate-400">
+                  <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-indigo-400"></i> Location</span>
+                  <span class="text-slate-200">Mumbai, India</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-400">
+                  <span class="flex items-center gap-1.5"><i data-lucide="cpu" class="w-3.5 h-3.5 text-cyan-400"></i> Domain</span>
+                  <span class="text-slate-200">Full-Stack & AI</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-400">
+                  <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-purple-400"></i> Security</span>
+                  <span class="text-slate-200">Threat Intel / Honeypot</span>
+                </div>
+              </div>
+
+              <!-- Interactive prompt -->
+              <div class="mt-5 w-full py-2 px-3 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <span class="flex items-center gap-1.5 font-mono">
+                  <i data-lucide="terminal" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  status: ready_to_interview
+                </span>
+                <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-800/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <h2 class="text-xs sm:text-sm font-mono tracking-widest text-indigo-400 uppercase">Profile Overview</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Engineering Mindset & Ambition</h3>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base">Bridging hardware concepts, core computer science algorithms, and high-level artificial intelligence workflows.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Card 1 -->
+          <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6">
+              <i data-lucide="code-2" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3">Core Problem Solving</h4>
+            <p class="text-sm text-slate-400 leading-relaxed mb-4">
+              Solid grasp of foundational CS principles including Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, and OS concepts.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-indigo-300">
+              <span class="px-2.5 py-1 bg-indigo-500/10 rounded-lg">DSA</span>
+              <span class="px-2.5 py-1 bg-indigo-500/10 rounded-lg">OOPs</span>
+              <span class="px-2.5 py-1 bg-indigo-500/10 rounded-lg">OS & DBMS</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6">
+              <i data-lucide="layers" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3">Modern Full-Stack</h4>
+            <p class="text-sm text-slate-400 leading-relaxed mb-4">
+              Experienced in building responsive client-server architectures with React, Node.js, and cloud backends like Supabase and Firebase with real-time updates and authentication.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-cyan-300">
+              <span class="px-2.5 py-1 bg-cyan-500/10 rounded-lg">React.js</span>
+              <span class="px-2.5 py-1 bg-cyan-500/10 rounded-lg">Node.js</span>
+              <span class="px-2.5 py-1 bg-cyan-500/10 rounded-lg">Supabase</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
+              <i data-lucide="bot" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3">AI & Cyber Telemetry</h4>
+            <p class="text-sm text-slate-400 leading-relaxed mb-4">
+              Deep interest in Artificial Intelligence, AI agent architectures, and evaluating decision systems, alongside practical telemetry pipelines and DNS anomaly clustering.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-purple-300">
+              <span class="px-2.5 py-1 bg-purple-500/10 rounded-lg">AI Agents</span>
+              <span class="px-2.5 py-1 bg-purple-500/10 rounded-lg">Entropy Analysis</span>
+              <span class="px-2.5 py-1 bg-purple-500/10 rounded-lg">Threat Intel</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX SECTION -->
+    <section id="skills" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/30 border-t border-slate-800/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <h2 class="text-xs sm:text-sm font-mono tracking-widest text-indigo-400 uppercase">Technical Arsenal</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Skills & Technologies</h3>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base">Comprehensive stack spanning programming languages, backend systems, databases, and analytical tools.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Category 1: Programming Languages -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800/80" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400">
+                <i data-lucide="code" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-lg font-bold text-white">Languages</h4>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span class="text-slate-200">Java</span>
+                  <span class="text-indigo-400">Advanced / Internship</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                  <div class="bg-indigo-500 h-full rounded-full transition-all duration-1000" style="width: 88%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span class="text-slate-200">Python</span>
+                  <span class="text-indigo-400">Certified / Data & AI</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                  <div class="bg-indigo-500 h-full rounded-full transition-all duration-1000" style="width: 85%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span class="text-slate-200">C++</span>
+                  <span class="text-indigo-400">DSA & Problem Solving</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                  <div class="bg-indigo-500 h-full rounded-full transition-all duration-1000" style="width: 80%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span class="text-slate-200">SQL</span>
+                  <span class="text-indigo-400">Relational Queries</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                  <div class="bg-indigo-500 h-full rounded-full transition-all duration-1000" style="width: 82%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Full-Stack Development -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800/80" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400">
+                <i data-lucide="layout" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-lg font-bold text-white">Web Development</h4>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span class="text-slate-200">React.js</span>
+                  <span class="text-cyan-400">Components & State</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                  <div class="bg-cyan-500 h-full rounded-full transition-all duration-1000" style="width: 85%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span class="text-slate-200">Node.js</span>
+                  <span class="text-cyan-400">Backend & APIs</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                  <div class="bg-cyan-500 h-full rounded-full transition-all duration-1000" style="width: 78%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span class="text-slate-200">HTML5 & Modern CSS</span>
+                  <span class="text-cyan-400">Responsive & UI Design</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                  <div class="bg-cyan-500 h-full rounded-full transition-all duration-1000" style="width: 90%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span class="text-slate-200">RESTful Architecture</span>
+                  <span class="text-cyan-400">CRUD & Integration</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                  <div class="bg-cyan-500 h-full rounded-full transition-all duration-1000" style="width: 82%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Databases & Tools -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800/80" data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="p-2.5 rounded-xl bg-purple-500/10 text-purple-400">
+                <i data-lucide="database" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-lg font-bold text-white">Databases & Cloud Tools</h4>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-2.5">
+                <i data-lucide="database" class="w-4 h-4 text-emerald-400"></i>
+                <span class="text-sm font-medium text-slate-200">Supabase</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-2.5">
+                <i data-lucide="flame" class="w-4 h-4 text-amber-400"></i>
+                <span class="text-sm font-medium text-slate-200">Firebase</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-2.5">
+                <i data-lucide="box" class="w-4 h-4 text-emerald-500"></i>
+                <span class="text-sm font-medium text-slate-200">MongoDB</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-2.5">
+                <i data-lucide="git-branch" class="w-4 h-4 text-orange-400"></i>
+                <span class="text-sm font-medium text-slate-200">Git / GitHub</span>
+              </div>
+            </div>
+
+            <!-- Soft & Analytical Skills Pill Box -->
+            <div class="mt-6 pt-5 border-t border-slate-800">
+              <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block mb-3">AI & Analytical Mindset</span>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">AI Fundamentals</span>
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">Pattern Recognition</span>
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">Anomaly Detection</span>
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">Error Analysis</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Soft Skills Banner -->
+        <div class="mt-10 p-6 rounded-2xl glass-card border border-indigo-500/20 flex flex-col md:flex-row items-center justify-between gap-6" data-aos="fade-up">
+          <div class="space-y-1 text-center md:text-left">
+            <h4 class="text-base font-bold text-white flex items-center gap-2 justify-center md:justify-start">
+              <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>
+              Professional & Interpersonal Strengths
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-400">Validated through academic leadership, group lead roles, and practical teamwork.</p>
+          </div>
+          <div class="flex flex-wrap gap-2.5 justify-center">
+            <span class="px-3.5 py-1.5 rounded-full bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Team Collaboration</span>
+            <span class="px-3.5 py-1.5 rounded-full bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Group Leadership</span>
+            <span class="px-3.5 py-1.5 rounded-full bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Customer Communication</span>
+            <span class="px-3.5 py-1.5 rounded-full bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Analytical Problem Solving</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SECTION -->
+    <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-800/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <h2 class="text-xs sm:text-sm font-mono tracking-widest text-indigo-400 uppercase">Featured Work</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Projects & Architecture</h3>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base">Real-world systems highlighting complex data processing, real-time sync, and threat intelligence.</p>
+        </div>
+
+        <div class="space-y-12">
+          
+          <!-- PROJECT 1: Honeypot Threat Intel (Featured Flagship) -->
+          <div class="glass-card rounded-3xl p-6 sm:p-10 border border-slate-800/80 relative overflow-hidden" data-aos="fade-up">
+            <!-- Accent glow in corner -->
+            <div class="absolute -top-24 -right-24 w-80 h-80 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-7 space-y-4">
+                <div class="flex flex-wrap items-center gap-3">
+                  <span class="px-3 py-1 rounded-full text-xs font-mono bg-purple-500/15 text-purple-300 border border-purple-500/30 flex items-center gap-1.5">
+                    <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+                    Cybersecurity & Telemetry
+                  </span>
+                  <span class="px-3 py-1 rounded-full text-xs font-mono bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
+                    Role: Group Lead
+                  </span>
+                </div>
+
+                <h4 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                  Honeypot-Based Threat Intelligence Platform
+                </h4>
+
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  Led a cybersecurity initiative focused on collecting, analyzing, and enriching attacker telemetry using multi-protocol honeypots to identify real-time malicious infrastructure and attacker behaviors.
+                </p>
+
+                <!-- Key Bullet points as cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-slate-300">
+                  <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start gap-2.5">
+                    <i data-lucide="terminal" class="w-4 h-4 text-indigo-400 mt-0.5 shrink-0"></i>
+                    <span><strong>Cowrie & Dionaea:</strong> Deployed SSH & malware capture honeypots to monitor unauthorized intrusions.</span>
+                  </div>
+                  <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start gap-2.5">
+                    <i data-lucide="filter" class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0"></i>
+                    <span><strong>IOC Pipeline:</strong> Automated parsing for extracting attacker IPs, domains, and malicious signatures.</span>
+                  </div>
+                  <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start gap-2.5">
+                    <i data-lucide="activity" class="w-4 h-4 text-purple-400 mt-0.5 shrink-0"></i>
+                    <span><strong>Entropy & Clustering:</strong> Applied DNS anomaly detection to recognize suspicious tunneling & payload flows.</span>
+                  </div>
+                  <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start gap-2.5">
+                    <i data-lucide="bar-chart-2" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                    <span><strong>STIX 2.1 & TAXII:</strong> Modeled standardized threat intel and visual dashboards for incident response.</span>
+                  </div>
+                </div>
+
+                <!-- Technologies badges -->
+                <div class="pt-3 flex flex-wrap gap-2 text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Python</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Cowrie</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Dionaea</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">STIX 2.1 / TAXII</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">DNS Anomaly Detection</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Dashboards</span>
+                </div>
+              </div>
+
+              <!-- Interactive Mockup / Terminal Preview -->
+              <div class="lg:col-span-5">
+                <div class="rounded-2xl bg-[#090e1a] border border-slate-800 shadow-2xl overflow-hidden font-mono text-xs">
+                  <!-- Window header -->
+                  <div class="px-4 py-3 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                      <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                      <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                      <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                    </div>
+                    <span class="text-slate-400 font-semibold">threat-telemetry-engine.sh</span>
+                    <span class="text-slate-500">STIX 2.1</span>
+                  </div>
+                  <!-- Terminal content -->
+                  <div class="p-4 space-y-2 text-slate-300 leading-relaxed overflow-x-auto">
+                    <p class="text-emerald-400">[+] Cowrie SSH listener active on :2222</p>
+                    <p class="text-slate-400">[i] Inbound brute-force: 194.26.29.112 -> Attempt root/admin</p>
+                    <p class="text-indigo-400">[+] Extracted IOC: SHA256 malware binary captured</p>
+                    <p class="text-amber-400">[!] DNS Entropy: high score (4.92) detected on subdomains</p>
+                    <p class="text-cyan-400">[+] Clustering: Attacker IP clustered in APT telemetry pool</p>
+                    <p class="text-purple-400">[+] Generating STIX 2.1 indicator object...</p>
+                    <div class="mt-2 p-2 rounded bg-slate-950/80 text-[11px] text-slate-400 border border-slate-800/80">
+                      <code>{ "type": "indicator", "spec_version": "2.1", "pattern": "[ipv4-addr:value = '194.26.29.112']", "valid_from": "2026-11-16T20:49:00Z" }</code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 2: OpsAgent (Full-Stack Developer) -->
+          <div class="glass-card rounded-3xl p-6 sm:p-10 border border-slate-800/80 relative overflow-hidden" data-aos="fade-up">
+            <!-- Accent glow -->
+            <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-cyan-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              <!-- Left Dashboard Mock Preview with Real UI Screenshots -->
+              <div class="lg:col-span-6 order-2 lg:order-1 space-y-3">
+                <div class="rounded-2xl bg-[#090e1a] border border-slate-800 p-2 sm:p-3 shadow-2xl overflow-hidden group">
+                  <div class="flex items-center justify-between px-3 py-2 border-b border-slate-800/80 text-xs">
+                    <div class="flex items-center gap-2">
+                      <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                      <span class="font-bold text-white font-mono">OpsAgent • Live Dashboard & Transactions</span>
+                    </div>
+                    <span class="text-emerald-400 font-mono text-[11px] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Production UI</span>
+                  </div>
+                  
+                  <!-- Main UI Screenshot -->
+                  <div class="relative rounded-xl overflow-hidden mt-2 border border-slate-800/60 shadow-inner group/img">
+                    <img src="assets/images/opsagent-dashboard.png" alt="OpsAgent Dashboard UI" class="w-full h-auto object-cover rounded-lg group-hover/img:scale-[1.02] transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <!-- Secondary Screenshot / Inventory Table Preview -->
+                <div class="rounded-2xl bg-[#090e1a] border border-slate-800/80 p-2 sm:p-3 shadow-xl overflow-hidden">
+                  <div class="flex items-center justify-between px-3 py-1.5 text-xs text-slate-400 font-mono">
+                    <span class="flex items-center gap-1.5"><i data-lucide="table" class="w-3.5 h-3.5 text-cyan-400"></i> Real-time Inventory & Stock Tracking</span>
+                    <span class="text-[10px] text-cyan-400">Supabase Sync</span>
+                  </div>
+                  <div class="rounded-xl overflow-hidden mt-1.5 border border-slate-800/60">
+                    <img src="assets/images/opsagent-inventory.png" alt="OpsAgent Real-time Inventory List" class="w-full h-auto object-cover rounded-lg hover:scale-[1.02] transition-transform duration-500">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Description -->
+              <div class="lg:col-span-6 space-y-4 order-1 lg:order-2">
+                <div class="flex flex-wrap items-center gap-3">
+                  <span class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 flex items-center gap-1.5">
+                    <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                    Full-Stack Application
+                  </span>
+                  <span class="px-3 py-1 rounded-full text-xs font-mono bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
+                    Role: Full-Stack Developer
+                  </span>
+                  <a href="https://shop-management-rhul.onrender.com/" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25 transition-colors flex items-center gap-1.5" title="Open Live OpsAgent App">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                  </a>
+                </div>
+
+                <h4 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                  OpsAgent: Scalable Inventory & Billing Management
+                </h4>
+
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  Engineered an enterprise-ready, scalable inventory and billing management system utilizing React and Supabase, streamlining business transactions, client auditing, and stock synchronization.
+                </p>
+
+                <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                  <li class="flex items-start gap-2.5">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i>
+                    <span><strong>CRUD Operations & Auth:</strong> Architected complete authentication policies and high-throughput CRUD endpoints.</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i>
+                    <span><strong>Real-Time Updates:</strong> Enabled live inventory synchronization via Supabase websocket subscriptions.</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i>
+                    <span><strong>Automated Bookkeeping:</strong> Optimized pricing algorithms to automate sales tax, discounts, and invoices, reducing human error.</span>
+                  </li>
+                </ul>
+
+                <div class="pt-3 flex flex-wrap gap-2 text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">React.js</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Supabase</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">PostgreSQL</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Real-Time WebSockets</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Tailwind CSS</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & TIMELINE SECTION -->
+    <section id="experience" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/30 border-t border-slate-800/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <h2 class="text-xs sm:text-sm font-mono tracking-widest text-indigo-400 uppercase">Academic Background</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Education & Journey</h3>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base">Consistent academic achievement in engineering and computer science.</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto relative border-l-2 border-indigo-500/30 ml-4 md:ml-auto md:mr-auto pl-6 sm:pl-8 space-y-12">
+          
+          <!-- Timeline Item 1: B.Tech -->
+          <div class="relative" data-aos="fade-up" data-aos-delay="100">
+            <!-- Pin -->
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-[#070b13] border-4 border-indigo-500 flex items-center justify-center">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 border border-slate-800/80">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                  09/2024 – 06/2027 (Ongoing)
+                </span>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20 font-bold">
+                  CGPI: 7.86
+                </span>
+              </div>
+              <h4 class="text-xl font-bold text-white">B.Tech in Electronics and Computer Science</h4>
+              <p class="text-indigo-300 text-sm font-medium mt-1">Vivekanand Education Society's Institute of Technology (VESIT)</p>
+              <p class="text-slate-400 text-xs mt-0.5">Mumbai, Maharashtra</p>
+              <p class="text-slate-300 text-xs sm:text-sm mt-3 leading-relaxed">
+                Focusing on distributed systems, AI & agentic decision models, cybersecurity telemetry, and software design principles.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2: Diploma -->
+          <div class="relative" data-aos="fade-up" data-aos-delay="200">
+            <!-- Pin -->
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-[#070b13] border-4 border-cyan-500 flex items-center justify-center">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 border border-slate-800/80">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                  10/2021 – 05/2024
+                </span>
+                <span class="text-xs font-mono text-cyan-300 bg-cyan-500/10 px-2.5 py-1 rounded border border-cyan-500/20 font-bold">
+                  Percentage: 77.66%
+                </span>
+              </div>
+              <h4 class="text-xl font-bold text-white">Diploma in Engineering</h4>
+              <p class="text-cyan-300 text-sm font-medium mt-1">Sou. Venutai Chavan Polytechnic</p>
+              <p class="text-slate-400 text-xs mt-0.5">Pune, Maharashtra</p>
+              <p class="text-slate-300 text-xs sm:text-sm mt-3 leading-relaxed">
+                Built rigorous foundations in electronic hardware, low-level logic, procedural programming, and system architecture.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3: SSC -->
+          <div class="relative" data-aos="fade-up" data-aos-delay="300">
+            <!-- Pin -->
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-[#070b13] border-4 border-purple-500 flex items-center justify-center">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 border border-slate-800/80">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  04/2020 – 03/2021
+                </span>
+                <span class="text-xs font-mono text-purple-300 bg-purple-500/10 px-2.5 py-1 rounded border border-purple-500/20 font-bold">
+                  Percentage: 66.5%
+                </span>
+              </div>
+              <h4 class="text-xl font-bold text-white">Secondary School Certificate (S.S.C)</h4>
+              <p class="text-purple-300 text-sm font-medium mt-1">St. Joseph Convent School</p>
+              <p class="text-slate-400 text-xs mt-0.5">Chalisgaon, Maharashtra</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES & CREDENTIALS SECTION -->
+    <section id="certificates" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-800/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <h2 class="text-xs sm:text-sm font-mono tracking-widest text-indigo-400 uppercase">Verified Qualifications</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Certifications & Training</h3>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base">Formal coursework, certifications, and industry internship programs.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Cert 1: Deloitte Cyber Simulation (Click to view full certificate) -->
+          <a href="https://drive.google.com/file/d/17upIcYoiXgBpjL4PZI6QRGB0ID9gdggt/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover rounded-2xl p-6 border border-slate-800/80 relative overflow-hidden group cursor-pointer block" data-aos="fade-up" data-aos-delay="50">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="shield" class="w-6 h-6"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 group-hover:bg-emerald-500/25 transition-colors">
+                <i data-lucide="external-link" class="w-3 h-3"></i> View Certificate
+              </span>
+            </div>
+            
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[11px] font-mono text-emerald-400 font-semibold">DELOITTE • FORAGE</span>
+              <span class="text-[10px] font-mono text-slate-400">Nov 2026</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">Cyber Job Simulation</h4>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+              Completed practical real-world cybersecurity tasks designed by Deloitte, covering security operations, threat analysis, and risk mitigation.
+            </p>
+            <div class="pt-3 border-t border-slate-800/80 flex flex-col gap-1.5 text-[11px] font-mono text-slate-400">
+              <div class="flex items-center text-emerald-400 gap-1.5 font-semibold">
+                <i data-lucide="badge-check" class="w-4 h-4"></i> Verified by Tina McCreery (CHRO, Deloitte)
+              </div>
+              <div class="text-[10px] text-slate-500 truncate" title="User Verification Code: 6af57be4c4c4f115bdfdbb12">
+                ID: 6af57be4c4c4f115bdfdbb12
+              </div>
+            </div>
+          </a>
+
+          <!-- Cert 2: Python Programming Certification -->
+          <a href="https://drive.google.com/file/d/1E8lr9BViVvriXMB0EsRtTxFVB7f58Ilt/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover rounded-2xl p-6 border border-slate-800/80 group cursor-pointer block" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="award" class="w-6 h-6"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 group-hover:bg-indigo-500/25 transition-colors">
+                <i data-lucide="external-link" class="w-3 h-3"></i> View Certificate
+              </span>
+            </div>
+            <span class="text-[11px] font-mono text-indigo-400 block mb-1">PROGRAMMING CERTIFICATION</span>
+            <h4 class="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">Python Programming Certification</h4>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+              Covering functional & object-oriented Python, data manipulation, algorithm design, and computational logic.
+            </p>
+            <div class="pt-3 border-t border-slate-800/80 flex items-center text-xs font-mono text-indigo-400 gap-1.5">
+              <i data-lucide="check" class="w-4 h-4"></i> Verified Google Drive Credential
+            </div>
+          </a>
+
+          <!-- Cert 3: C Programming Certification -->
+          <a href="https://drive.google.com/file/d/1EEJnOtQ4FRFEAzi2wRJuMIhMEBCdfvZ4/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover rounded-2xl p-6 border border-slate-800/80 group cursor-pointer block" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 group-hover:bg-cyan-500/25 transition-colors">
+                <i data-lucide="external-link" class="w-3 h-3"></i> View Certificate
+              </span>
+            </div>
+            <span class="text-[11px] font-mono text-cyan-400 block mb-1">SYSTEMS CERTIFICATION</span>
+            <h4 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">C Programming Certification</h4>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+              Demonstrated mastery of memory allocation, pointers, data structures, and optimized native code execution.
+            </p>
+            <div class="pt-3 border-t border-slate-800/80 flex items-center text-xs font-mono text-cyan-400 gap-1.5">
+              <i data-lucide="check" class="w-4 h-4"></i> Verified Google Drive Credential
+            </div>
+          </a>
+
+          <!-- Cert 4: Java Internship Training -->
+          <a href="https://drive.google.com/file/d/16H7zR9hY6eLWuha0hJWzm0dcU32KxmhU/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover rounded-2xl p-6 border border-slate-800/80 group cursor-pointer block" data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="briefcase" class="w-6 h-6"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono bg-purple-500/15 text-purple-300 border border-purple-500/30 group-hover:bg-purple-500/25 transition-colors">
+                <i data-lucide="external-link" class="w-3 h-3"></i> View Certificate
+              </span>
+            </div>
+            <span class="text-[11px] font-mono text-purple-400 block mb-1">PRACTICAL INTERNSHIP</span>
+            <h4 class="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">Java Internship Training</h4>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+              Intensive training in Enterprise Java, OOP design patterns, backend workflows, and real-world software modules.
+            </p>
+            <div class="pt-3 border-t border-slate-800/80 flex items-center text-xs font-mono text-purple-400 gap-1.5">
+              <i data-lucide="check" class="w-4 h-4"></i> Verified Google Drive Credential
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & RECRUITER CTA SECTION -->
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/40 border-t border-slate-800/50 relative overflow-hidden">
+      <!-- Glow background -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-72 bg-indigo-600/10 blur-[120px] pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto">
+        <div class="glass-card rounded-3xl p-8 sm:p-14 border border-indigo-500/20 relative">
+          
+          <div class="text-center max-w-2xl mx-auto space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-xs font-mono">
+              <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+              Let's Connect
+            </div>
+            <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Ready to Discuss Opportunities</h3>
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+              Seeking Software Engineering, Full-Stack, or AI & Telemetry roles. Have an open position or want to review my code? Let’s schedule a chat.
+            </p>
+          </div>
+
+          <!-- Contact Channels Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+            
+            <!-- Email (Direct Webmail / Gmail compose in browser) -->
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ashishwadhwa000@gmail.com&su=Inquiry%20from%20Portfolio%20-%20Aashish%20Wadhwa" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/80 transition-all flex flex-col items-center text-center group">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-mono text-slate-400 uppercase">Email (Open in Gmail)</span>
+              <span class="text-xs font-semibold text-white mt-1 break-all">ashishwadhwa000@gmail.com</span>
+            </a>
+
+            <!-- Phone -->
+            <a href="tel:9359993739" class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/80 transition-all flex flex-col items-center text-center group">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-mono text-slate-400 uppercase">Phone</span>
+              <span class="text-xs font-semibold text-white mt-1">+91 9359993739</span>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/Aashishwadhwa2005" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/80 transition-all flex flex-col items-center text-center group">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <i data-lucide="github" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-mono text-slate-400 uppercase">GitHub</span>
+              <span class="text-xs font-semibold text-white mt-1">@Aashishwadhwa2005</span>
+            </a>
+
+            <!-- Location -->
+            <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col items-center text-center">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-3">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-mono text-slate-400 uppercase">Location</span>
+              <span class="text-xs font-semibold text-white mt-1">Mumbai, India</span>
+            </div>
+
+          </div>
+
+          <!-- Direct action buttons -->
+          <div class="flex flex-wrap items-center justify-center gap-4 mt-10">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ashishwadhwa000@gmail.com&su=Interview%20Invitation%20-%20Aashish%20Wadhwa&body=Hi%20Aashish,%0A%0AWe%20reviewed%20your%20portfolio%20and%20resume%20and%20would%20love%20to%20schedule%20an%20interview.%0A%0ABest%20regards," target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-600 hover:scale-105 active:scale-95 transition-transform shadow-lg shadow-indigo-600/30 flex items-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              Send Interview Invitation
+            </a>
+            <button onclick="window.print()" class="px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-300 bg-slate-800/90 hover:bg-slate-700 border border-slate-700 hover:text-white transition-all flex items-center gap-2">
+              <i data-lucide="printer" class="w-4 h-4"></i>
+              Print / Save as PDF
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CERTIFICATE PREVIEW MODAL -->
+  <div id="cert-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-md transition-opacity duration-300">
+    <div class="relative w-full max-w-4xl bg-[#090e1a] border border-slate-700/80 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-scale-up">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-4 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+            <i data-lucide="award" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h3 id="cert-modal-title" class="text-base font-bold text-white leading-tight">Certificate View</h3>
+            <p id="cert-modal-subtitle" class="text-xs font-mono text-emerald-400 mt-0.5">Verified Credential</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-2">
+          <!-- External open / download button -->
+          <a id="cert-modal-download" href="#" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors" title="Open full PDF / image in new tab">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <span>Open in Tab</span>
+          </a>
+          <!-- Close button -->
+          <button onclick="closeCertModal()" class="p-2 rounded-lg bg-slate-800 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 transition-colors">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body (Preview Canvas) -->
+      <div class="p-4 sm:p-6 overflow-y-auto flex items-center justify-center bg-slate-950/60">
+        <div class="relative max-w-full rounded-2xl overflow-hidden border border-slate-800 shadow-xl bg-white">
+          <img id="cert-modal-img" src="" alt="Certificate Preview" class="w-auto max-h-[65vh] object-contain mx-auto">
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-3 bg-slate-900/80 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-slate-400">
+        <span id="cert-modal-code" class="text-[11px] text-slate-400">Verification ID: -</span>
+        <button onclick="closeCertModal()" class="px-4 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-colors">
+          Close Preview
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SIMPLE DETAIL MODAL (For C, Python, Java) -->
+  <div id="simple-cert-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-md transition-opacity duration-300">
+    <div class="relative w-full max-w-lg bg-[#090e1a] border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div class="flex items-center gap-2.5">
+          <div class="p-2 rounded-xl bg-indigo-500/10 text-indigo-400">
+            <i data-lucide="badge-check" class="w-5 h-5"></i>
+          </div>
+          <h3 id="simple-cert-title" class="text-lg font-bold text-white">Certification Details</h3>
+        </div>
+        <button onclick="closeSimpleCertModal()" class="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <p id="simple-cert-desc" class="text-sm text-slate-300 leading-relaxed"></p>
+      <div class="pt-4 flex justify-end">
+        <button onclick="closeSimpleCertModal()" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition-all">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-8 px-4 border-t border-slate-800/60 text-center text-xs text-slate-500 font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Aashish Wadhwa. All rights reserved.</p>
+      <p class="flex items-center gap-1.5 text-slate-400">
+        Engineered with <span class="text-indigo-400">Tailwind CSS</span> & <span class="text-purple-400">Modern JS</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Initialize Animate On Scroll (AOS)
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: 'ease-out-cubic',
+    });
+
+    // Dynamic Typewriter Effect
+    const words = [
+      "Full-Stack Developer",
+      "Electronics & CS Student",
+      "Cyber Threat Intelligence Lead",
+      "AI & Decision Systems Enthusiast"
+    ];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typewriterElement = document.getElementById("typewriter");
+
+    function type() {
+      const currentWord = words[wordIndex];
+      if (isDeleting) {
+        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        typeSpeed = 1800; // Pause at end of word
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeSpeed = 400; // Pause before new word
+      }
+
+      setTimeout(type, typeSpeed);
+    }
+    type();
+
+    // Mouse Follow Glow Circle
+    const cursorBlur = document.getElementById("cursor-blur");
+    window.addEventListener("mousemove", (e) => {
+      cursorBlur.style.left = `${e.clientX}px`;
+      cursorBlur.style.top = `${e.clientY}px`;
+    });
+
+    // Navbar Scroll Glass Blur Effect
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add("glass-nav");
+      } else {
+        navbar.classList.remove("glass-nav");
+      }
+    });
+
+    // Mobile Menu Toggle
+    const mobileToggle = document.getElementById("mobile-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+    mobileToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    // Certificate Lightbox / Modal Functions
+    const certModal = document.getElementById("cert-modal");
+    const certModalImg = document.getElementById("cert-modal-img");
+    const certModalTitle = document.getElementById("cert-modal-title");
+    const certModalCode = document.getElementById("cert-modal-code");
+    const certModalDownload = document.getElementById("cert-modal-download");
+
+    function openCertModal(title, imageSrc, fileHref, code) {
+      certModalTitle.textContent = title;
+      certModalImg.src = imageSrc;
+      certModalDownload.href = fileHref || imageSrc;
+      certModalCode.textContent = "Verification ID: " + (code || "Deloitte-Cyber-Sim-2026");
+      
+      certModal.classList.remove("hidden");
+      certModal.classList.add("flex");
+      document.body.style.overflow = "hidden"; // prevent background scroll
+      lucide.createIcons();
+    }
+
+    function closeCertModal() {
+      certModal.classList.add("hidden");
+      certModal.classList.remove("flex");
+      document.body.style.overflow = "auto";
+    }
+
+    // Close on background backdrop click
+    certModal.addEventListener("click", (e) => {
+      if (e.target === certModal) closeCertModal();
+    });
+
+    // Simple Modal for Python, C, Java
+    const simpleCertModal = document.getElementById("simple-cert-modal");
+    const simpleCertTitle = document.getElementById("simple-cert-title");
+    const simpleCertDesc = document.getElementById("simple-cert-desc");
+
+    function openSimpleCertModal(title, description) {
+      simpleCertTitle.textContent = title;
+      simpleCertDesc.textContent = description;
+      simpleCertModal.classList.remove("hidden");
+      simpleCertModal.classList.add("flex");
+      document.body.style.overflow = "hidden";
+      lucide.createIcons();
+    }
+
+    function closeSimpleCertModal() {
+      simpleCertModal.classList.add("hidden");
+      simpleCertModal.classList.remove("flex");
+      document.body.style.overflow = "auto";
+    }
+
+    simpleCertModal.addEventListener("click", (e) => {
+      if (e.target === simpleCertModal) closeSimpleCertModal();
+    });
+
+    // Close on Escape key press
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeCertModal();
+        closeSimpleCertModal();
+      }
+    });
+  </script>
+</body>
+</html>
